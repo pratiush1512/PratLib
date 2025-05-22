@@ -24,7 +24,7 @@
 from setuptools import setup, find_packages
 setup(
     name="pratlib",
-    version="1.0.6",
+    version="1.0.7",
     author="Pratiush",
     author_email="pratiushanand1@gmail.com",
     description="A PySpark library for machine learning, similar to scikit-learn.",
@@ -37,7 +37,7 @@ setup(
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
     ],
-    python_requires=">=3.6",
+    python_requires=">=3.6 and <3.12",
     install_requires=[
         "pyspark>=3.0.0",
         "asttokens==3.0.0",
