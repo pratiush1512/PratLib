@@ -37,7 +37,7 @@ setup(
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
     ],
-    python_requires=">=3.6 and <3.12",
+    python_requires=">=3.6",
     install_requires=[
         "pyspark>=3.0.0",
         "asttokens==3.0.0",
