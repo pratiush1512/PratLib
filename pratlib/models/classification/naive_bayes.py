@@ -1,14 +1,29 @@
-# pratlib/models/classification/naive_bayes.py
+from pyspark.ml.feature import VectorAssembler
 from pyspark.ml.classification import NaiveBayes as SparkNaiveBayes
 
-class NaiveBayes:
+class NaiveBayesClassifier:
     def __init__(self, **kwargs):
         self.model = SparkNaiveBayes(**kwargs)
+        self.assembler = None
+        self.fitted_model = None
+        self.feature_cols = None
 
-    def fit(self, df, features_col='features', label_col='label'):
-        self.model.setFeaturesCol(features_col).setLabelCol(label_col)
-        self.fitted_model = self.model.fit(df)
+    def fit(self, df, label_col='label'):
+        """
+        Fit the Naive Bayes model using inferred feature columns from the input DataFrame.
+        """
+        self.feature_cols = [col for col in df.columns if col != label_col]
+        self.assembler = VectorAssembler(inputCols=self.feature_cols, outputCol='features')
+        df_vectorized = self.assembler.transform(df)
+        self.model.setFeaturesCol('features').setLabelCol(label_col)
+        self.fitted_model = self.model.fit(df_vectorized)
         return self
 
     def predict(self, df):
-        return self.fitted_model.transform(df)
+        """
+        Predict using the trained Naive Bayes model.
+        """
+        if not self.fitted_model or not self.assembler:
+            raise ValueError("Model must be fitted before predicting.")
+        df_vectorized = self.assembler.transform(df)
+        return self.fitted_model.transform(df_vectorized)
