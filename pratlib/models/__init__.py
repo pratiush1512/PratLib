@@ -1,6 +1,6 @@
 # pratlib/models/__init__.py
 from .classification import (
-    LogisticRegression,
+    LogisticRegressor,
     DecisionTreeClassifier,
     RandomForestClassifier,
     GradientBoostedTreeClassifier,
@@ -11,7 +11,7 @@ from .classification import (
     FactorizationMachinesClassifier
 )
 from .regression import (
-    LinearRegression,
+    LinearRegressor,
     DecisionTreeRegressor,
     RandomForestRegressor,
     GradientBoostedTreeRegressor,
