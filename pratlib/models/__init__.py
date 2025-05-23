@@ -3,13 +3,13 @@ from .classification import (
     LogisticRegressor,
     DecisionTreeClassifier,
     RandomForestClassifier,
-    GradientBoostedTreeClassifier,
-    NaiveBayes
+    GradientBoostingClassifier,
+    NaiveBayesClassifier
 )
 
 from .regression import (
     LinearRegressor,
     DecisionTreeRegressor,
     RandomForestRegressor,
-    GradientBoostedTreeRegressor,
+    GradientBoostingRegressor,
 )
