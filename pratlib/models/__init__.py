@@ -4,18 +4,12 @@ from .classification import (
     DecisionTreeClassifier,
     RandomForestClassifier,
     GradientBoostedTreeClassifier,
-    MultilayerPerceptronClassifier,
-    LinearSVC,
-    OneVsRest,
-    NaiveBayes,
-    FactorizationMachinesClassifier
+    NaiveBayes
 )
+
 from .regression import (
     LinearRegressor,
     DecisionTreeRegressor,
     RandomForestRegressor,
     GradientBoostedTreeRegressor,
-    SurvivalRegressor,
-    IsotonicRegressor,
-    FactorizationMachinesRegressor
 )
