@@ -24,7 +24,7 @@
 from setuptools import setup, find_packages
 setup(
     name="pratlib",
-    version="1.0.3",
+    version="1.0.9",
     author="Pratiush",
     author_email="pratiushanand1@gmail.com",
     description="A PySpark library for machine learning, similar to scikit-learn.",
